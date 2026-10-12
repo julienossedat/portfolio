@@ -34,6 +34,9 @@ h2{font-size:1.5rem;margin:70px 0 24px}
 .media a{color:var(--acc);font-weight:600;text-decoration:none}
 .media iframe{width:100%;height:100%;border:0}
 .alt{font-size:.8rem;color:var(--mut)}
+.card{transition:box-shadow .3s,border-color .3s}
+.card.big{grid-column:1/-1;border-color:var(--acc);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.card.big h3{font-size:1.6rem}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{font-size:.75rem;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--mut)}
 .role{font-size:.85rem}.role b{color:var(--acc)}
@@ -88,23 +91,41 @@ footer{margin:80px 0 30px;color:var(--mut);font-size:.85rem}
    audio : lien direct vers un fichier .mp3 (optionnel) */
 var projets=[
 {titre:"Elden Ring – Projet de fin d'année SD2",annee:2026,type:"Projet de fin d'année – SD2",role:"Conception sonore, bruitages, enregistrement des voix, musique et mixage",outils:["Pro Tools","Ableton Live"],desc:"Réalisation de l'intégralité de la bande sonore du trailer : conception sonore, bruitages, enregistrement des voix, musique et mixage.",video:"",audio:"",yt:"B4JBr_fjJRc",lien:"https://youtu.be/B4JBr_fjJRc"},
-{titre:"Jeu vidéo – Titre du projet",annee:2026,type:"Audio interactif",role:"Sound design, implémentation",outils:["Wwise","Unity"],desc:"Explique comment le son réagit au gameplay et aux états du jeu.",video:"",audio:""},
+{titre:"Showreel",annee:2026,type:"Showreel – 2 ans d'études",role:"",outils:["Pro Tools","Logic Pro","Ableton Live"],desc:"Mes meilleurs projets sur mes deux années d'études, réalisés avec Pro Tools, Logic Pro et Ableton Live.",video:"",audio:"",yt:"-UAvE3Sil6A",lien:"https://youtu.be/-UAvE3Sil6A"},
 {titre:"Ambiances – Titre du projet",annee:2025,type:"Création sonore",role:"Enregistrement, synthèse, montage",outils:["Reaper","Synthé modulaire"],desc:"Présente la démarche : prises de son, traitement, résultat final.",video:"",audio:""},
 {titre:"Bande-annonce – Titre du projet",annee:2025,type:"Post-production",role:"Sound design, mixage",outils:["Pro Tools"],desc:"Raconte le brief et la manière dont le son soutient le montage.",video:"",audio:""}
 ];
 var g=document.getElementById("grid");
 projets.forEach(function(p){
 var c=document.createElement("article");c.className="card";
-var m=p.yt?'<iframe src="https://www.youtube-nocookie.com/embed/'+p.yt+'" title="Lecteur vidéo" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>':p.lien?'<a href="'+p.lien+'" target="_blank" rel="noopener">▶ Voir le trailer</a>':p.video?'<video controls preload="metadata" src="'+p.video+'"></video>':p.audio?'<audio controls preload="none" src="'+p.audio+'"></audio>':'Extrait à venir';
+var m=p.yt?'<iframe src="https://www.youtube.com/embed/'+p.yt+'?enablejsapi=1&playsinline=1" title="Lecteur vidéo" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>':p.lien?'<a href="'+p.lien+'" target="_blank" rel="noopener">▶ Voir le trailer</a>':p.video?'<video controls preload="metadata" src="'+p.video+'"></video>':p.audio?'<audio controls preload="none" src="'+p.audio+'"></audio>':'Extrait à venir';
 c.innerHTML='<div class="media">'+m+'</div><div class="t"><span>'+p.type+'</span><span>'+p.annee+'</span></div><h3></h3><p></p><div class="role"><b>Rôle :</b> <span></span></div><div class="tags"></div>';
 c.querySelector("h3").textContent=p.titre;
 c.querySelector("p").textContent=p.desc;
-c.querySelector(".role span").textContent=p.role;
+if(p.role){c.querySelector(".role span").textContent=p.role}else{c.querySelector(".role").remove()}
 var t=c.querySelector(".tags");
 p.outils.forEach(function(o){var s=document.createElement("span");s.textContent=o;t.appendChild(s)});
 if(p.yt&&p.lien){var a=document.createElement("a");a.className="alt";a.href=p.lien;a.target="_blank";a.rel="noopener";a.textContent="Vidéo indisponible ? Ouvrir sur YouTube";c.appendChild(a)}
 g.appendChild(c);
 });
+var players=[];
+window.onYouTubeIframeAPIReady=function(){
+document.querySelectorAll(".card iframe").forEach(function(f){
+var card=f.closest(".card");
+var pl=new YT.Player(f,{events:{onStateChange:function(e){
+if(e.data===1){
+players.forEach(function(o){if(o.p!==pl&&o.p.pauseVideo){o.p.pauseVideo()}});
+document.querySelectorAll(".card.big").forEach(function(x){if(x!==card){x.classList.remove("big")}});
+card.classList.add("big");
+setTimeout(function(){card.scrollIntoView({behavior:"smooth",block:"center"})},200);
+}else if(e.data===2||e.data===0){
+setTimeout(function(){if(e.data===0||pl.getPlayerState()!==1){card.classList.remove("big")}},400);
+}
+}}});
+players.push({p:pl,c:card});
+});
+};
+if(document.querySelector(".card iframe")){var ys=document.createElement("script");ys.src="https://www.youtube.com/iframe_api";document.head.appendChild(ys)}
 var w=document.getElementById("wave");
 for(var i=0;i<48;i++){var b=document.createElement("i");b.style.height=(20+Math.abs(Math.sin(i*.5))*80)+"%";b.style.animationDelay=(i*.06)+"s";w.appendChild(b)}
 </script>
