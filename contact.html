@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Julien Ossedat</title>
+<meta name="description" content="Contacter Julien Ossedat, sound designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A7%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top"><div class="w bar">
+<a class="logo" href="index.html">JULIEN OSSEDAT</a>
+<nav class="menu" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="projets.html">Projets</a><a href="apropos.html">À propos</a><a href="contact.html" aria-current="page">Contact</a></nav>
+</div></header>
+<main class="w">
+<h1 class="st" style="margin-top:56px">Contact</h1>
+<p class="intro">Un projet, une collaboration, une offre de stage ? Écris-moi, je réponds par e-mail.</p>
+<div class="panel" style="max-width:660px">
+<form id="cf" action="https://formsubmit.co/julien.ossedat1@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Nouveau message depuis ton portfolio">
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+<label>Nom<input type="text" name="name" required autocomplete="name"></label>
+<label>E-mail<input type="email" name="email" required autocomplete="email"></label>
+<label>Message<textarea name="message" rows="6" required></textarea></label>
+<button class="btn" type="submit">Envoyer le message</button>
+<p id="cs" role="status"></p>
+</form>
+</div>
+</main>
+<footer class="w">&copy; 2026 Julien Ossedat</footer>
+<script src="main.js"></script>
+</body>
+</html>

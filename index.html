@@ -2,160 +2,56 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Portfolio – Sound Designer</title>
-<style>
-:root{--bg:#f2f8fd;--fg:#0e1a26;--mut:#5b7186;--card:#fff;--line:#d6e5f1;--acc:#2b9be3;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a121b;--fg:#eaf3fb;--mut:#8ea4b8;--card:#111c28;--line:#1f3042;--acc:#5cc4ff;--on:#06222f}}
-:root[data-theme="dark"]{--bg:#0a121b;--fg:#eaf3fb;--mut:#8ea4b8;--card:#111c28;--line:#1f3042;--acc:#5cc4ff;--on:#06222f}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
-.w{max-width:1000px;margin:0 auto;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:.9rem}
-nav a{color:var(--mut);text-decoration:none;margin-left:18px}nav a:hover{color:var(--fg)}
-nav b{letter-spacing:.04em}
-.hero{padding:70px 0 50px}
-.hero small{color:var(--acc);letter-spacing:.15em;text-transform:uppercase;font-weight:600}
-.hero h1{font-size:clamp(2.2rem,7vw,4.2rem);line-height:1.05;margin:14px 0 18px;max-width:14ch}
-.hero p{color:var(--mut);max-width:52ch;font-size:1.1rem}
-.wave{display:flex;align-items:center;gap:4px;height:60px;margin-top:36px}
-.wave i{flex:1;max-width:8px;background:var(--acc);border-radius:4px;animation:p 1.6s ease-in-out infinite}
-@keyframes p{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
-@media (prefers-reduced-motion:reduce){.wave i{animation:none}}
-h2{font-size:1.5rem;margin:70px 0 24px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
-.card .t{display:flex;justify-content:space-between;gap:10px;font-size:.8rem;color:var(--mut)}
-.card h3{margin:0;font-size:1.2rem}
-.card p{margin:0;color:var(--mut);font-size:.95rem}
-.media{aspect-ratio:16/9;border-radius:10px;background:var(--bg);border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:.85rem;overflow:hidden}
-.media video,.media audio{width:100%;height:100%}
-.media a{color:var(--acc);font-weight:600;text-decoration:none}
-.media iframe{width:100%;height:100%;border:0}
-.alt{font-size:.8rem;color:var(--mut)}
-form{display:grid;gap:14px;max-width:560px}
-label{display:grid;gap:6px;font-size:.9rem;color:var(--mut)}
-input,textarea{font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
-input:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
-button.btn{border:0;cursor:pointer;font:inherit;font-weight:600;justify-self:start}
-button.btn:disabled{opacity:.6;cursor:wait}
-#cs{margin:0;font-size:.9rem;color:var(--mut)}
-.card{transition:box-shadow .3s,border-color .3s}
-.card.big{grid-column:1/-1;border-color:var(--acc);box-shadow:0 12px 40px rgba(0,0,0,.25)}
-.card.big h3{font-size:1.6rem}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{font-size:.75rem;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--mut)}
-.role{font-size:.85rem}.role b{color:var(--acc)}
-.about{display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
-@media (max-width:700px){.about{grid-template-columns:1fr}}
-.about ul{list-style:none;padding:0;margin:0}
-.about li{padding:8px 0;border-bottom:1px solid var(--line)}
-.btn{display:inline-block;background:var(--acc);color:var(--on);padding:12px 22px;border-radius:99px;text-decoration:none;font-weight:600;margin-top:10px}
-footer{margin:80px 0 30px;color:var(--mut);font-size:.85rem}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julien Ossedat, sound designer</title>
+<meta name="description" content="Portfolio de Julien Ossedat, sound designer : showreel, projets et CV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A7%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-<div class="w">
-<nav><b>JULIEN OSSEDAT</b><div><a href="#projets">Projets</a><a href="#apropos">À propos</a><a href="#contact">Contact</a></div></nav>
-
-<header class="hero">
-<small>Sound Designer</small>
-<h1>Je donne une voix aux images et aux mondes.</h1>
-<p>Jeune diplômé en sound design, je conçois des ambiances, des effets et des univers sonores pour le cinéma, le jeu vidéo et les formats interactifs.</p>
-<div class="wave" id="wave" aria-hidden="true"></div>
-</header>
-
-<section id="projets">
-<h2>Projets</h2>
-<div class="grid" id="grid"></div>
+<header class="top"><div class="w bar">
+<a class="logo" href="index.html">JULIEN OSSEDAT</a>
+<nav class="menu" aria-label="Navigation principale"><a href="index.html" aria-current="page">Accueil</a><a href="projets.html">Projets</a><a href="apropos.html">À propos</a><a href="contact.html">Contact</a></nav>
+</div></header>
+<main class="w">
+<section class="hero">
+<p class="tag">Sound designer</p>
+<h1>JULIEN<br>OSSEDAT</h1>
+<p class="lead">Je donne une voix aux images et aux mondes. Passionné de musique et de jeux vidéo, je conçois des univers sonores pour l'image et l'interactif.</p>
+<div class="actions">
+<a class="btn" href="projets.html">Voir mes projets</a>
+<a class="btn ghost" href="contact.html">Me contacter</a>
+</div>
+<div class="eq" id="eq" aria-hidden="true"></div>
 </section>
 
-<section id="apropos">
-<h2>À propos</h2>
-<div class="about">
-<p>Écris ici une courte bio (3 à 4 phrases) : ta formation, ce qui te passionne dans le son, le type de projets que tu recherches et ta façon de travailler.</p>
-<ul>
-<li><b>Outils</b> : Pro Tools, Reaper, Wwise, Logic Pro, Ableton Live</li>
-<li><b>Compétences</b> : design sonore, foley, enregistrement, montage, mixage</li>
-<li><b>Langues</b> : français, anglais</li>
-</ul>
+<section>
+<h2 class="st">Showreel</h2>
+<div class="panel">
+<div class="vid"><iframe src="https://www.youtube.com/embed/7nwa87700N4" title="Showreel de Julien Ossedat" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+<p class="cap">Mes meilleurs projets sur mes deux années d'études, réalisés avec Pro Tools, Logic Pro et Ableton Live.</p>
+<p class="alt"><a href="https://youtu.be/7nwa87700N4" target="_blank" rel="noopener">Vidéo indisponible ? Ouvrir sur YouTube</a></p>
 </div>
 </section>
 
-<section id="contact">
-<h2>Contact</h2>
-<p>Un projet, une collaboration, une offre ? Écrivons-nous.</p>
-<form id="cf" action="https://formsubmit.co/julien.ossedat1@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Nouveau message depuis ton portfolio">
-<input type="hidden" name="_template" value="table">
-<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-<label>Nom<input type="text" name="name" required autocomplete="name"></label>
-<label>E-mail<input type="email" name="email" required autocomplete="email"></label>
-<label>Message<textarea name="message" rows="6" required></textarea></label>
-<button class="btn" type="submit">Envoyer le message</button>
-<p id="cs" role="status"></p>
-</form>
-</section>
-
-<footer>© 2026 Julien Ossedat</footer>
+<section>
+<h2 class="st">CV</h2>
+<div class="cv">
+<a href="CV_Julien_OSSEDAT.pdf" target="_blank" rel="noopener"><img src="cv.png" alt="Aperçu du CV de Julien Ossedat, sound designer junior" width="1076" height="1521" loading="lazy"></a>
+<div>
+<p>Formation, expérience en sound design et compétences : toutes les informations tiennent sur une page.</p>
+<div class="actions">
+<a class="btn" href="CV_Julien_OSSEDAT.pdf" download>Télécharger le CV</a>
+<a class="btn ghost" href="CV_Julien_OSSEDAT.pdf" target="_blank" rel="noopener">Ouvrir le PDF</a>
 </div>
-
-<script>
-/* ===== À PERSONNALISER : modifie cette liste =====
-   video : lien direct vers un fichier .mp4 (optionnel)
-   audio : lien direct vers un fichier .mp3 (optionnel) */
-var projets=[
-{titre:"Elden Ring – Projet de fin d'année SD2",annee:2026,type:"Projet de fin d'année – SD2",role:"Conception sonore, bruitages, enregistrement des voix, musique et mixage",outils:["Pro Tools","Ableton Live"],desc:"Réalisation de l'intégralité de la bande sonore du trailer : conception sonore, bruitages, enregistrement des voix, musique et mixage.",video:"",audio:"",yt:"B4JBr_fjJRc",lien:"https://youtu.be/B4JBr_fjJRc"},
-{titre:"Showreel",annee:2026,type:"Showreel – 2 ans d'études",role:"",outils:["Pro Tools","Logic Pro","Ableton Live"],desc:"Mes meilleurs projets sur mes deux années d'études, réalisés avec Pro Tools, Logic Pro et Ableton Live.",video:"",audio:"",yt:"7nwa87700N4",lien:"https://youtu.be/7nwa87700N4"},
-{titre:"Zelda Breath of the Wild – Re-sound design",annee:"",type:"Re-sound design de trailer",role:"Musique et bruitages",outils:["Ableton Live"],desc:"Re-sound design du trailer de The Legend of Zelda: Breath of the Wild : musique et bruitages réalisés entièrement sur Ableton Live.",video:"",audio:"",yt:"vGkxLuCszTE",lien:"https://youtu.be/vGkxLuCszTE"},
-{titre:"Bande-annonce – Titre du projet",annee:2025,type:"Post-production",role:"Sound design, mixage",outils:["Pro Tools"],desc:"Raconte le brief et la manière dont le son soutient le montage.",video:"",audio:""}
-];
-var g=document.getElementById("grid");
-projets.forEach(function(p){
-var c=document.createElement("article");c.className="card";
-var m=p.yt?'<iframe src="https://www.youtube.com/embed/'+p.yt+'?enablejsapi=1&playsinline=1" title="Lecteur vidéo" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>':p.lien?'<a href="'+p.lien+'" target="_blank" rel="noopener">▶ Voir le trailer</a>':p.video?'<video controls preload="metadata" src="'+p.video+'"></video>':p.audio?'<audio controls preload="none" src="'+p.audio+'"></audio>':'Extrait à venir';
-c.innerHTML='<div class="media">'+m+'</div><div class="t"><span>'+p.type+'</span><span>'+p.annee+'</span></div><h3></h3><p></p><div class="role"><b>Rôle :</b> <span></span></div><div class="tags"></div>';
-c.querySelector("h3").textContent=p.titre;
-c.querySelector("p").textContent=p.desc;
-if(p.role){c.querySelector(".role span").textContent=p.role}else{c.querySelector(".role").remove()}
-var t=c.querySelector(".tags");
-p.outils.forEach(function(o){var s=document.createElement("span");s.textContent=o;t.appendChild(s)});
-if(p.yt&&p.lien){var a=document.createElement("a");a.className="alt";a.href=p.lien;a.target="_blank";a.rel="noopener";a.textContent="Vidéo indisponible ? Ouvrir sur YouTube";c.appendChild(a)}
-g.appendChild(c);
-});
-var players=[];
-window.onYouTubeIframeAPIReady=function(){
-document.querySelectorAll(".card iframe").forEach(function(f){
-var card=f.closest(".card");
-var pl=new YT.Player(f,{events:{onStateChange:function(e){
-if(e.data===1){
-players.forEach(function(o){if(o.p!==pl&&o.p.pauseVideo){o.p.pauseVideo()}});
-document.querySelectorAll(".card.big").forEach(function(x){if(x!==card){x.classList.remove("big")}});
-card.classList.add("big");
-setTimeout(function(){card.scrollIntoView({behavior:"smooth",block:"center"})},200);
-}else if(e.data===2||e.data===0){
-setTimeout(function(){if(e.data===0||pl.getPlayerState()!==1){card.classList.remove("big");if(!document.querySelector(".card.big")){setTimeout(function(){document.getElementById("projets").scrollIntoView({behavior:"smooth",block:"start"})},350)}}},400);
-}
-}}});
-players.push({p:pl,c:card});
-});
-};
-if(document.querySelector(".card iframe")){var ys=document.createElement("script");ys.src="https://www.youtube.com/iframe_api";document.head.appendChild(ys)}
-var cf=document.getElementById("cf");
-if(cf){cf.addEventListener("submit",function(ev){
-ev.preventDefault();
-var st=document.getElementById("cs"),bt=cf.querySelector("button");
-if(cf.elements["_honey"].value){return}
-bt.disabled=true;st.textContent="Envoi en cours…";
-fetch("https://formsubmit.co/ajax/julien.ossedat1@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:cf.elements["name"].value,email:cf.elements["email"].value,message:cf.elements["message"].value,_subject:"Nouveau message depuis ton portfolio",_template:"table"})})
-.then(function(r){return r.json()})
-.then(function(d){if(d&&(d.success===true||d.success==="true")){cf.reset();st.textContent="Merci ! Ton message a bien été envoyé."}else{throw new Error()}})
-.catch(function(){st.textContent="L'envoi a échoué. Réessaie ou écris-moi directement à julien.ossedat1@gmail.com."})
-.finally(function(){bt.disabled=false});
-})}
-var w=document.getElementById("wave");
-for(var i=0;i<48;i++){var b=document.createElement("i");b.style.height=(20+Math.abs(Math.sin(i*.5))*80)+"%";b.style.animationDelay=(i*.06)+"s";w.appendChild(b)}
-</script>
+</div>
+</div>
+</section>
+</main>
+<footer class="w">&copy; 2026 Julien Ossedat</footer>
+<script src="main.js"></script>
 </body>
 </html>
