@@ -119,7 +119,7 @@ document.querySelectorAll(".card.big").forEach(function(x){if(x!==card){x.classL
 card.classList.add("big");
 setTimeout(function(){card.scrollIntoView({behavior:"smooth",block:"center"})},200);
 }else if(e.data===2||e.data===0){
-setTimeout(function(){if(e.data===0||pl.getPlayerState()!==1){card.classList.remove("big")}},400);
+setTimeout(function(){if(e.data===0||pl.getPlayerState()!==1){card.classList.remove("big");if(!document.querySelector(".card.big")){setTimeout(function(){document.getElementById("projets").scrollIntoView({behavior:"smooth",block:"start"})},350)}}},400);
 }
 }}});
 players.push({p:pl,c:card});
