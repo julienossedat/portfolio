@@ -11,14 +11,14 @@
   }
 
   /* Cartes de la page Projets (liste "projets" définie dans projets.html) */
-  var grid = document.getElementById("grid");
-  if (grid && window.projets) {
-    window.projets.forEach(function (p) {
+  var cats = document.getElementById("cats");
+  if (cats && window.projets) {
+    var buildCard = function (p) {
       var c = document.createElement("article");
       c.className = "card panel" + (p.lock ? " lock" : "");
       var media;
       if (p.lock) {
-        media = "Bientôt disponible";
+        media = "À venir";
       } else if (p.yt) {
         media = '<iframe src="https://www.youtube.com/embed/' + p.yt + '?enablejsapi=1&playsinline=1" title="Lecteur vidéo : ' + p.titre.replace(/"/g, "") + '" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
       } else if (p.lien) {
@@ -58,7 +58,23 @@
         a.textContent = "Vidéo indisponible ? Ouvrir sur YouTube";
         c.appendChild(a);
       }
-      grid.appendChild(c);
+      return c;
+    };
+    (window.categories || []).forEach(function (k) {
+      var sec = document.createElement("section");
+      var h = document.createElement("h2");
+      h.className = "st";
+      h.textContent = k.titre;
+      var g = document.createElement("div");
+      g.className = "grid";
+      var items = window.projets.filter(function (p) { return p.cat === k.id; });
+      if (!items.length) {
+        items = [{ lock: true, titre: "Bientôt disponible", type: "", desc: "Un nouveau projet arrivera dans cette catégorie." }];
+      }
+      items.forEach(function (p) { g.appendChild(buildCard(p)); });
+      sec.appendChild(h);
+      sec.appendChild(g);
+      cats.appendChild(sec);
     });
 
     /* La carte s'agrandit à la lecture, rétrécit à l'arrêt */
