@@ -34,6 +34,13 @@ h2{font-size:1.5rem;margin:70px 0 24px}
 .media a{color:var(--acc);font-weight:600;text-decoration:none}
 .media iframe{width:100%;height:100%;border:0}
 .alt{font-size:.8rem;color:var(--mut)}
+form{display:grid;gap:14px;max-width:560px}
+label{display:grid;gap:6px;font-size:.9rem;color:var(--mut)}
+input,textarea{font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+input:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+button.btn{border:0;cursor:pointer;font:inherit;font-weight:600;justify-self:start}
+button.btn:disabled{opacity:.6;cursor:wait}
+#cs{margin:0;font-size:.9rem;color:var(--mut)}
 .card{transition:box-shadow .3s,border-color .3s}
 .card.big{grid-column:1/-1;border-color:var(--acc);box-shadow:0 12px 40px rgba(0,0,0,.25)}
 .card.big h3{font-size:1.6rem}
@@ -79,7 +86,16 @@ footer{margin:80px 0 30px;color:var(--mut);font-size:.85rem}
 <section id="contact">
 <h2>Contact</h2>
 <p>Un projet, une collaboration, une offre ? Écrivons-nous.</p>
-<a class="btn" href="mailto:julien.ossedat1@gmail.com">julien.ossedat1@gmail.com</a>
+<form id="cf" action="https://formsubmit.co/julien.ossedat1@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Nouveau message depuis ton portfolio">
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+<label>Nom<input type="text" name="name" required autocomplete="name"></label>
+<label>E-mail<input type="email" name="email" required autocomplete="email"></label>
+<label>Message<textarea name="message" rows="6" required></textarea></label>
+<button class="btn" type="submit">Envoyer le message</button>
+<p id="cs" role="status"></p>
+</form>
 </section>
 
 <footer>© 2026 Julien Ossedat</footer>
@@ -126,6 +142,18 @@ players.push({p:pl,c:card});
 });
 };
 if(document.querySelector(".card iframe")){var ys=document.createElement("script");ys.src="https://www.youtube.com/iframe_api";document.head.appendChild(ys)}
+var cf=document.getElementById("cf");
+if(cf){cf.addEventListener("submit",function(ev){
+ev.preventDefault();
+var st=document.getElementById("cs"),bt=cf.querySelector("button");
+if(cf.elements["_honey"].value){return}
+bt.disabled=true;st.textContent="Envoi en cours…";
+fetch("https://formsubmit.co/ajax/julien.ossedat1@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:cf.elements["name"].value,email:cf.elements["email"].value,message:cf.elements["message"].value,_subject:"Nouveau message depuis ton portfolio",_template:"table"})})
+.then(function(r){return r.json()})
+.then(function(d){if(d&&(d.success===true||d.success==="true")){cf.reset();st.textContent="Merci ! Ton message a bien été envoyé."}else{throw new Error()}})
+.catch(function(){st.textContent="L'envoi a échoué. Réessaie ou écris-moi directement à julien.ossedat1@gmail.com."})
+.finally(function(){bt.disabled=false});
+})}
 var w=document.getElementById("wave");
 for(var i=0;i<48;i++){var b=document.createElement("i");b.style.height=(20+Math.abs(Math.sin(i*.5))*80)+"%";b.style.animationDelay=(i*.06)+"s";w.appendChild(b)}
 </script>
