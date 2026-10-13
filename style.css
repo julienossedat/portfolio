@@ -119,3 +119,6 @@ footer.w{margin:110px auto 0;padding-top:20px;padding-bottom:36px;border-top:2px
 .lang button:hover{color:var(--fg)}
 .lang button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#04202f}
 label span{display:block}
+
+.bio + .bio{margin-top:14px}
+#cats > section{scroll-margin-top:84px}

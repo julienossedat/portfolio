@@ -141,7 +141,8 @@
                     card.classList.remove("big");
                     if (!document.querySelector(".card.big")) {
                       setTimeout(function () {
-                        document.getElementById("projets").scrollIntoView({ behavior: "smooth", block: "start" });
+                        var sec = card.closest("section");
+                        (sec || document.getElementById("projets")).scrollIntoView({ behavior: "smooth", block: "start" });
                       }, 350);
                     }
                   }
