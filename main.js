@@ -178,6 +178,8 @@
         body: JSON.stringify({
           name: cf.elements["name"].value,
           email: cf.elements["email"].value,
+          company: cf.elements["company"].value,
+          phone: cf.elements["phone"].value,
           message: cf.elements["message"].value,
           _subject: "Nouveau message depuis ton portfolio",
           _template: "table"
