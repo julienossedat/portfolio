@@ -11,47 +11,49 @@
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A7%3C/text%3E%3C/svg%3E">
 </head>
-<body>
+<body data-title="title.home">
 <header class="top"><div class="w bar">
 <a class="logo" href="index.html">JULIEN OSSEDAT</a>
-<nav class="menu" aria-label="Navigation principale"><a href="index.html" aria-current="page">Accueil</a><a href="projets.html">Projets</a><a href="apropos.html">À propos</a><a href="contact.html">Contact</a></nav>
+<nav class="menu" aria-label="Navigation principale" data-i18n-aria="nav.label"><a href="index.html" aria-current="page" data-i18n="nav.home">Accueil</a><a href="projets.html" data-i18n="nav.projects">Projets</a><a href="apropos.html" data-i18n="nav.about">À propos</a><a href="contact.html" data-i18n="nav.contact">Contact</a></nav>
+<div class="lang" role="group" aria-label="Langue" data-i18n-aria="lang.label"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
 </div></header>
 <main class="w">
 <section class="hero">
-<p class="tag">Sound designer</p>
+<p class="tag" data-i18n="home.tag">Sound designer</p>
 <h1>JULIEN<br>OSSEDAT</h1>
-<p class="lead">Je donne une voix aux images et aux mondes. Passionné de musique et de jeux vidéo, je conçois des univers sonores pour l'image et l'interactif.</p>
+<p class="lead" data-i18n="home.lead">Je donne une voix aux images et aux mondes. Passionné de musique et de jeux vidéo, je conçois des univers sonores pour l'image et l'interactif.</p>
 <div class="actions">
-<a class="btn" href="projets.html">Voir mes projets</a>
-<a class="btn ghost" href="contact.html">Me contacter</a>
+<a class="btn" href="projets.html" data-i18n="home.btnProjects">Voir mes projets</a>
+<a class="btn ghost" href="contact.html" data-i18n="home.btnContact">Me contacter</a>
 </div>
 <div class="eq" id="eq" aria-hidden="true"></div>
 </section>
 
 <section>
-<h2 class="st">Showreel</h2>
+<h2 class="st" data-i18n="home.showreel">Showreel</h2>
 <div class="panel">
-<div class="vid"><iframe src="https://www.youtube.com/embed/7nwa87700N4" title="Showreel de Julien Ossedat" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
-<p class="cap">Mes meilleurs projets sur mes deux années d'études, réalisés avec Pro Tools, Logic Pro et Ableton Live.</p>
-<p class="alt"><a href="https://youtu.be/7nwa87700N4" target="_blank" rel="noopener">Vidéo indisponible ? Ouvrir sur YouTube</a></p>
+<div class="vid"><iframe src="https://www.youtube.com/embed/7nwa87700N4" title="Showreel de Julien Ossedat" data-i18n-title="home.showreelTitle" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+<p class="cap" data-i18n="home.cap">Mes meilleurs projets sur mes deux années d'études, réalisés avec Pro Tools, Logic Pro et Ableton Live.</p>
+<p class="alt"><a href="https://youtu.be/7nwa87700N4" target="_blank" rel="noopener" data-i18n="home.yt">Vidéo indisponible ? Ouvrir sur YouTube</a></p>
 </div>
 </section>
 
 <section>
-<h2 class="st">CV</h2>
+<h2 class="st" data-i18n="home.cv">CV</h2>
 <div class="cv">
-<a href="CV_Julien_OSSEDAT.pdf" target="_blank" rel="noopener"><img src="cv.png" alt="Aperçu du CV de Julien Ossedat, sound designer junior" width="1076" height="1521" loading="lazy"></a>
+<a href="CV_Julien_OSSEDAT.pdf" target="_blank" rel="noopener"><img src="cv.png" alt="Aperçu du CV de Julien Ossedat, sound designer junior" data-i18n-alt="home.cvAlt" width="1076" height="1521" loading="lazy"></a>
 <div>
-<p>Formation, expérience en sound design et compétences : toutes les informations tiennent sur une page.</p>
+<p data-i18n="home.cvText">Formation, expérience en sound design et compétences : toutes les informations tiennent sur une page.</p>
 <div class="actions">
-<a class="btn" href="CV_Julien_OSSEDAT.pdf" download>Télécharger le CV</a>
-<a class="btn ghost" href="CV_Julien_OSSEDAT.pdf" target="_blank" rel="noopener">Ouvrir le PDF</a>
+<a class="btn" href="CV_Julien_OSSEDAT.pdf" download data-i18n="home.cvDownload">Télécharger le CV</a>
+<a class="btn ghost" href="CV_Julien_OSSEDAT.pdf" target="_blank" rel="noopener" data-i18n="home.cvOpen">Ouvrir le PDF</a>
 </div>
 </div>
 </div>
 </section>
 </main>
 <footer class="w">&copy; 2026 Julien Ossedat</footer>
+<script src="i18n.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

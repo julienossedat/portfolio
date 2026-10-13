@@ -11,28 +11,30 @@
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A7%3C/text%3E%3C/svg%3E">
 </head>
-<body>
+<body data-title="title.contact">
 <header class="top"><div class="w bar">
 <a class="logo" href="index.html">JULIEN OSSEDAT</a>
-<nav class="menu" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="projets.html">Projets</a><a href="apropos.html">À propos</a><a href="contact.html" aria-current="page">Contact</a></nav>
+<nav class="menu" aria-label="Navigation principale" data-i18n-aria="nav.label"><a href="index.html" data-i18n="nav.home">Accueil</a><a href="projets.html" data-i18n="nav.projects">Projets</a><a href="apropos.html" data-i18n="nav.about">À propos</a><a href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a></nav>
+<div class="lang" role="group" aria-label="Langue" data-i18n-aria="lang.label"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
 </div></header>
 <main class="w">
-<h1 class="st" style="margin-top:56px">Contact</h1>
-<p class="intro">Un projet, une collaboration, une offre de stage ? Écris-moi, je réponds par e-mail.</p>
+<h1 class="st" style="margin-top:56px" data-i18n="contact.title">Contact</h1>
+<p class="intro" data-i18n="contact.intro">Un projet, une collaboration, une offre de stage ? Écris-moi, je réponds par e-mail.</p>
 <div class="panel" style="max-width:660px">
 <form id="cf" action="https://formsubmit.co/julien.ossedat1@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Nouveau message depuis ton portfolio">
 <input type="hidden" name="_template" value="table">
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-<label>Nom<input type="text" name="name" required autocomplete="name"></label>
-<label>E-mail<input type="email" name="email" required autocomplete="email"></label>
-<label>Message<textarea name="message" rows="6" required></textarea></label>
-<button class="btn" type="submit">Envoyer le message</button>
+<label><span data-i18n="form.name">Nom</span><input type="text" name="name" required autocomplete="name"></label>
+<label><span data-i18n="form.email">E-mail</span><input type="email" name="email" required autocomplete="email"></label>
+<label><span data-i18n="form.message">Message</span><textarea name="message" rows="6" required></textarea></label>
+<button class="btn" type="submit" data-i18n="form.send">Envoyer le message</button>
 <p id="cs" role="status"></p>
 </form>
 </div>
 </main>
 <footer class="w">&copy; 2026 Julien Ossedat</footer>
+<script src="i18n.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

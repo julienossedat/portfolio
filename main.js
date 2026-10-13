@@ -1,4 +1,6 @@
 (function () {
+  var I = window.I18N;
+
   /* Égaliseur de la page d'accueil */
   var eq = document.getElementById("eq");
   if (eq) {
@@ -10,72 +12,109 @@
     }
   }
 
-  /* Cartes de la page Projets (liste "projets" définie dans projets.html) */
+  /* Page Projets : catégories et cartes (données "categories" et "projets" dans projets.html) */
   var cats = document.getElementById("cats");
-  if (cats && window.projets) {
-    var buildCard = function (p) {
-      var c = document.createElement("article");
-      c.className = "card panel" + (p.lock ? " lock" : "");
-      var media;
-      if (p.lock) {
-        media = "À venir";
-      } else if (p.yt) {
-        media = '<iframe src="https://www.youtube.com/embed/' + p.yt + '?enablejsapi=1&playsinline=1" title="Lecteur vidéo : ' + p.titre.replace(/"/g, "") + '" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
-      } else if (p.lien) {
-        media = '<a href="' + p.lien + '" target="_blank" rel="noopener">Voir la vidéo</a>';
-      } else {
-        media = "Extrait à venir";
-      }
-      c.innerHTML =
-        '<div class="media">' + media + "</div>" +
-        '<div class="t"><span></span><span></span></div>' +
-        "<h3></h3><p></p>" +
-        '<div class="role"><b>Rôle :</b> <span></span></div>' +
-        '<div class="tags"></div>';
-      var t = c.querySelectorAll(".t span");
-      t[0].textContent = p.type || "";
-      t[1].textContent = p.annee || "";
-      c.querySelector("h3").textContent = p.titre;
-      c.querySelector("p").textContent = p.desc || "";
-      if (p.role) {
-        c.querySelector(".role span").textContent = p.role;
-      } else {
-        c.querySelector(".role").remove();
-      }
-      var tags = c.querySelector(".tags");
-      (p.outils || []).forEach(function (o) {
-        var s = document.createElement("span");
-        s.textContent = o;
-        tags.appendChild(s);
-      });
-      if (!(p.outils && p.outils.length)) tags.remove();
-      if (p.yt && p.lien) {
-        var a = document.createElement("a");
-        a.className = "alt";
-        a.href = p.lien;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.textContent = "Vidéo indisponible ? Ouvrir sur YouTube";
-        c.appendChild(a);
-      }
-      return c;
+  var catRefs = [];
+  var cardRefs = [];
+
+  function pick(p, field) {
+    if (I.get() === "en" && p.en && p.en[field]) return p.en[field];
+    return p[field];
+  }
+
+  function buildCard(p) {
+    var c = document.createElement("article");
+    c.className = "card panel" + (p.lock ? " lock" : "");
+    var iframe = "";
+    if (!p.lock && p.yt) {
+      iframe = '<iframe src="https://www.youtube.com/embed/' + p.yt + '?enablejsapi=1&playsinline=1" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
+    }
+    c.innerHTML =
+      '<div class="media">' + iframe + "</div>" +
+      '<div class="t"><span></span><span></span></div>' +
+      "<h3></h3><p></p>" +
+      '<div class="role"><b></b> <span></span></div>' +
+      '<div class="tags"></div>';
+    var r = {
+      p: p,
+      media: c.querySelector(".media"),
+      iframe: c.querySelector("iframe"),
+      type: c.querySelectorAll(".t span")[0],
+      annee: c.querySelectorAll(".t span")[1],
+      h3: c.querySelector("h3"),
+      desc: c.querySelector("p"),
+      role: c.querySelector(".role"),
+      roleB: c.querySelector(".role b"),
+      roleS: c.querySelector(".role span"),
+      tags: c.querySelector(".tags"),
+      link: null,
+      alt: null
     };
+    if (!p.lock && !p.yt && p.lien) {
+      r.link = document.createElement("a");
+      r.link.href = p.lien;
+      r.link.target = "_blank";
+      r.link.rel = "noopener";
+      r.media.appendChild(r.link);
+    }
+    (p.outils || []).forEach(function (o) {
+      var s = document.createElement("span");
+      s.textContent = o;
+      r.tags.appendChild(s);
+    });
+    if (p.yt && p.lien) {
+      r.alt = document.createElement("a");
+      r.alt.className = "alt";
+      r.alt.href = p.lien;
+      r.alt.target = "_blank";
+      r.alt.rel = "noopener";
+      c.appendChild(r.alt);
+    }
+    r.card = c;
+    cardRefs.push(r);
+    return c;
+  }
+
+  function applyProjects() {
+    var en = I.get() === "en";
+    catRefs.forEach(function (k) {
+      k.h.textContent = (en && k.k.titre_en) || k.k.titre;
+    });
+    cardRefs.forEach(function (r) {
+      var p = r.p;
+      var title = p.lock ? I.t("proj.soonTitle") : pick(p, "titre");
+      r.type.textContent = pick(p, "type") || "";
+      r.annee.textContent = p.annee || "";
+      r.h3.textContent = title;
+      r.desc.textContent = p.lock ? I.t("proj.soonDesc") : pick(p, "desc") || "";
+      r.roleB.textContent = I.t("proj.role");
+      var role = pick(p, "role");
+      r.roleS.textContent = role || "";
+      r.role.hidden = !role;
+      r.tags.hidden = !(p.outils && p.outils.length);
+      if (r.iframe) r.iframe.title = I.t("proj.player") + " " + title;
+      if (r.link) r.link.textContent = I.t("proj.watch");
+      if (!r.iframe && !r.link) r.media.textContent = I.t("proj.soon");
+      if (r.alt) r.alt.textContent = I.t("home.yt");
+    });
+  }
+
+  if (cats && window.projets) {
     (window.categories || []).forEach(function (k) {
       var sec = document.createElement("section");
       var h = document.createElement("h2");
       h.className = "st";
-      h.textContent = k.titre;
       var g = document.createElement("div");
       g.className = "grid";
       var items = window.projets.filter(function (p) { return p.cat === k.id; });
-      if (!items.length) {
-        items = [{ lock: true, titre: "Bientôt disponible", type: "", desc: "Un nouveau projet arrivera dans cette catégorie." }];
-      }
+      if (!items.length) items = [{ lock: true }];
       items.forEach(function (p) { g.appendChild(buildCard(p)); });
       sec.appendChild(h);
       sec.appendChild(g);
       cats.appendChild(sec);
+      catRefs.push({ k: k, h: h });
     });
+    I.onChange(applyProjects);
 
     /* La carte s'agrandit à la lecture, rétrécit à l'arrêt */
     var players = [];
@@ -130,7 +169,7 @@
       var bt = cf.querySelector("button");
       if (cf.elements["_honey"].value) return;
       bt.disabled = true;
-      st.textContent = "Envoi en cours…";
+      st.textContent = I.t("form.sending");
       fetch("https://formsubmit.co/ajax/julien.ossedat1@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -146,15 +185,17 @@
         .then(function (d) {
           if (d && (d.success === true || d.success === "true")) {
             cf.reset();
-            st.textContent = "Merci ! Ton message a bien été envoyé.";
+            st.textContent = I.t("form.ok");
           } else {
             throw new Error("échec");
           }
         })
         .catch(function () {
-          st.textContent = "L'envoi a échoué. Réessaie ou écris-moi directement à julien.ossedat1@gmail.com.";
+          st.textContent = I.t("form.fail");
         })
         .finally(function () { bt.disabled = false; });
     });
   }
+
+  I.apply();
 })();

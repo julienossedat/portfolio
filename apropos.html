@@ -11,60 +11,58 @@
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A7%3C/text%3E%3C/svg%3E">
 </head>
-<body>
+<body data-title="title.about">
 <header class="top"><div class="w bar">
 <a class="logo" href="index.html">JULIEN OSSEDAT</a>
-<nav class="menu" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="projets.html">Projets</a><a href="apropos.html" aria-current="page">À propos</a><a href="contact.html">Contact</a></nav>
+<nav class="menu" aria-label="Navigation principale" data-i18n-aria="nav.label"><a href="index.html" data-i18n="nav.home">Accueil</a><a href="projets.html" data-i18n="nav.projects">Projets</a><a href="apropos.html" aria-current="page" data-i18n="nav.about">À propos</a><a href="contact.html" data-i18n="nav.contact">Contact</a></nav>
+<div class="lang" role="group" aria-label="Langue" data-i18n-aria="lang.label"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
 </div></header>
 <main class="w">
-<h1 class="st" style="margin-top:56px">À propos</h1>
+<h1 class="st" style="margin-top:56px" data-i18n="about.title">À propos</h1>
 <div class="about">
 <div class="stack">
 <div class="panel">
-<p class="bio">Sound designer passionné de musique et de jeux vidéo. Je cherche un stage afin d'approfondir les compétences dans le son acquises à travers l'école.</p>
+<p class="bio" data-i18n="about.bio">Sound designer passionné de musique et de jeux vidéo. Je cherche un stage afin d'approfondir les compétences dans le son acquises à travers l'école.</p>
 </div>
 <div class="panel">
-<h2 class="sub" style="font-family:var(--px);font-size:.7rem;line-height:1.6;color:var(--acc);margin:0 0 18px;font-weight:400">Parcours</h2>
+<h2 class="sub" data-i18n="about.path">Parcours</h2>
 <div class="quest">
-<b>Stagiaire en sound design</b>
+<b data-i18n="about.q1">Stagiaire en sound design</b>
 <small>Frequencies, 2025</small>
 <ul>
-<li>Création de bruitages sonores pour interface utilisateur</li>
-<li>Création de jingle et de sons pour la marque</li>
-<li>Collaboration avec des comédiens de doublage pour une fiction sonore</li>
+<li data-i18n="about.q1a">Création de bruitages sonores pour interface utilisateur</li>
+<li data-i18n="about.q1b">Création de jingle et de sons pour la marque</li>
+<li data-i18n="about.q1c">Collaboration avec des comédiens de doublage pour une fiction sonore</li>
 </ul>
 </div>
 <div class="quest">
-<b>Bachelor Sound Designer</b>
-<small>ACFA Multimedia, 2024 à aujourd'hui</small>
+<b data-i18n="about.q2">Bachelor Sound Designer</b>
+<small data-i18n="about.q2d">ACFA Multimedia, 2024 à aujourd'hui</small>
 </div>
 </div>
 </div>
 <div class="stack">
 <div class="panel">
-<h2 class="sub" style="font-family:var(--px);font-size:.7rem;line-height:1.6;color:var(--acc);margin:0 0 14px;font-weight:400">Compétences</h2>
-<ul class="badges">
-<li>Conception sonore</li><li>Enregistrement</li><li>Mixage audio</li><li>Montage audio</li><li>Composition musicale à l'image</li><li>Installation et test d'équipement audio</li>
-</ul>
+<h2 class="sub" data-i18n="about.skills">Compétences</h2>
+<ul class="badges"><li data-i18n="about.s1">Conception sonore</li><li data-i18n="about.s2">Enregistrement</li><li data-i18n="about.s3">Mixage audio</li><li data-i18n="about.s4">Montage audio</li><li data-i18n="about.s5">Composition musicale à l'image</li><li data-i18n="about.s6">Installation et test d'équipement audio</li></ul>
 </div>
 <div class="panel">
-<h2 class="sub" style="font-family:var(--px);font-size:.7rem;line-height:1.6;color:var(--acc);margin:0 0 14px;font-weight:400">Outils</h2>
-<ul class="badges">
-<li>Pro Tools</li><li>Logic Pro</li><li>Ableton Live</li><li>Reaper</li><li>Wwise</li>
-</ul>
+<h2 class="sub" data-i18n="about.tools">Outils</h2>
+<ul class="badges"><li>Pro Tools</li><li>Logic Pro</li><li>Ableton Live</li><li>Reaper</li><li>Wwise</li></ul>
 </div>
 <div class="panel">
-<h2 class="sub" style="font-family:var(--px);font-size:.7rem;line-height:1.6;color:var(--acc);margin:0 0 14px;font-weight:400">Langues</h2>
-<ul class="badges"><li>Français</li><li>Anglais</li></ul>
+<h2 class="sub" data-i18n="about.langs">Langues</h2>
+<ul class="badges"><li data-i18n="about.fr">Français</li><li data-i18n="about.en">Anglais</li></ul>
 </div>
 <div class="panel">
-<h2 class="sub" style="font-family:var(--px);font-size:.7rem;line-height:1.6;color:var(--acc);margin:0 0 14px;font-weight:400">Centres d'intérêt</h2>
-<ul class="badges"><li>Musique</li><li>Jeux vidéo</li><li>Lecture</li><li>Informatique</li><li>Nouvelles technologies</li></ul>
+<h2 class="sub" data-i18n="about.interests">Centres d'intérêt</h2>
+<ul class="badges"><li data-i18n="about.i1">Musique</li><li data-i18n="about.i2">Jeux vidéo</li><li data-i18n="about.i3">Lecture</li><li data-i18n="about.i4">Informatique</li><li data-i18n="about.i5">Nouvelles technologies</li></ul>
 </div>
 </div>
 </div>
 </main>
 <footer class="w">&copy; 2026 Julien Ossedat</footer>
+<script src="i18n.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

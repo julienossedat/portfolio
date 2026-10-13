@@ -11,14 +11,15 @@
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A7%3C/text%3E%3C/svg%3E">
 </head>
-<body>
+<body data-title="title.projects">
 <header class="top"><div class="w bar">
 <a class="logo" href="index.html">JULIEN OSSEDAT</a>
-<nav class="menu" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="projets.html" aria-current="page">Projets</a><a href="apropos.html">À propos</a><a href="contact.html">Contact</a></nav>
+<nav class="menu" aria-label="Navigation principale" data-i18n-aria="nav.label"><a href="index.html" data-i18n="nav.home">Accueil</a><a href="projets.html" aria-current="page" data-i18n="nav.projects">Projets</a><a href="apropos.html" data-i18n="nav.about">À propos</a><a href="contact.html" data-i18n="nav.contact">Contact</a></nav>
+<div class="lang" role="group" aria-label="Langue" data-i18n-aria="lang.label"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
 </div></header>
 <main class="w">
 <section id="projets">
-<h1 class="st" style="margin-top:56px">Projets</h1>
+<h1 class="st" style="margin-top:56px" data-i18n="proj.title">Projets</h1>
 <div id="cats"></div>
 </section>
 </main>
@@ -28,6 +29,7 @@
    yt   : identifiant de la vidéo YouTube (la fin du lien youtu.be)
    lien : lien YouTube complet
    cat  : identifiant de la catégorie (voir la liste "categories")
+   en   : version anglaise des textes (titre, type, role, desc)
    Une catégorie sans projet affiche automatiquement une case "bientôt disponible". */
 var categories=[
 {id:"games",titre:"Games"},
@@ -36,10 +38,13 @@ var categories=[
 {id:"integration",titre:"Game audio integration (Wwise, FMOD)"}
 ];
 var projets=[
-{cat:"games",titre:"Elden Ring – Projet de fin d'année SD2",annee:2026,type:"Projet de fin d'année – SD2",role:"Conception sonore, bruitages, enregistrement des voix, musique et mixage",outils:["Pro Tools","Ableton Live"],desc:"Réalisation de l'intégralité de la bande sonore du trailer : conception sonore, bruitages, enregistrement des voix, musique et mixage.",yt:"B4JBr_fjJRc",lien:"https://youtu.be/B4JBr_fjJRc"},
-{cat:"games",titre:"Zelda Breath of the Wild – Re-sound design",annee:"",type:"Re-sound design de trailer",role:"Musique et bruitages",outils:["Ableton Live"],desc:"Re-sound design du trailer de The Legend of Zelda: Breath of the Wild : musique et bruitages réalisés entièrement sur Ableton Live.",yt:"vGkxLuCszTE",lien:"https://youtu.be/vGkxLuCszTE"}
+{cat:"games",titre:"Elden Ring – Projet de fin d'année SD2",annee:2026,type:"Projet de fin d'année – SD2",role:"Conception sonore, bruitages, enregistrement des voix, musique et mixage",outils:["Pro Tools","Ableton Live"],desc:"Réalisation de l'intégralité de la bande sonore du trailer : conception sonore, bruitages, enregistrement des voix, musique et mixage.",yt:"B4JBr_fjJRc",lien:"https://youtu.be/B4JBr_fjJRc",
+ en:{titre:"Elden Ring – End-of-year project SD2",type:"End-of-year project – SD2",role:"Sound design, foley, voice recording, music and mixing",desc:"Complete soundtrack for the trailer: sound design, foley, voice recording, music and mixing."}},
+{cat:"games",titre:"Zelda Breath of the Wild – Re-sound design",annee:"",type:"Re-sound design de trailer",role:"Musique et bruitages",outils:["Ableton Live"],desc:"Re-sound design du trailer de The Legend of Zelda: Breath of the Wild : musique et bruitages réalisés entièrement sur Ableton Live.",yt:"vGkxLuCszTE",lien:"https://youtu.be/vGkxLuCszTE",
+ en:{type:"Trailer re-sound design",role:"Music and foley",desc:"Re-sound design of The Legend of Zelda: Breath of the Wild trailer: music and foley made entirely in Ableton Live."}}
 ];
 </script>
+<script src="i18n.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

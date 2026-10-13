@@ -108,3 +108,14 @@ input:focus,textarea:focus{border-color:var(--acc)}
 .intro{max-width:56ch;color:var(--mut);margin:0 0 26px}
 
 footer.w{margin:110px auto 0;padding-top:20px;padding-bottom:36px;border-top:2px solid var(--line);color:var(--mut);font-family:var(--px);font-size:.55rem;line-height:1.8}
+
+/* Utilitaires et sélecteur de langue */
+[hidden]{display:none!important}
+.sub{font-family:var(--px);font-size:.7rem;line-height:1.6;color:var(--acc);margin:0 0 14px;font-weight:400}
+.panel .quest + .quest{margin-top:0}
+.lang{display:flex}
+.lang button{font-family:var(--px);font-size:.6rem;line-height:1;background:transparent;color:var(--mut);border:2px solid var(--line);padding:8px 10px;cursor:pointer}
+.lang button + button{border-left:0}
+.lang button:hover{color:var(--fg)}
+.lang button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#04202f}
+label span{display:block}
