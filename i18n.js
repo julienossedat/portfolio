@@ -150,6 +150,8 @@
     var saved = localStorage.getItem("lang");
     if (saved === "fr" || saved === "en") lang = saved;
   } catch (e) {}
+  var fromUrl = (location.search.match(/[?&]lang=(fr|en)/) || [])[1];
+  if (fromUrl) lang = fromUrl;
 
   var listeners = [];
 
@@ -171,6 +173,17 @@
     attr("[data-i18n-alt]", "data-i18n-alt", "alt");
     attr("[data-i18n-title]", "data-i18n-title", "title");
     attr("[data-i18n-aria]", "data-i18n-aria", "aria-label");
+    document.querySelectorAll("a[href]").forEach(function (a) {
+      var h = a.getAttribute("href");
+      var m = h.match(/^([^:?#]*\.html)(\?[^#]*)?(#.*)?$/);
+      if (m) a.setAttribute("href", m[1] + "?lang=" + lang + (m[3] || ""));
+    });
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set("lang", lang);
+      history.replaceState(null, "", u.toString());
+    } catch (e) {}
+    try { localStorage.setItem("lang", lang); } catch (e) {}
     var tk = document.body.getAttribute("data-title");
     if (tk) document.title = t(tk);
     document.querySelectorAll(".lang button").forEach(function (b) {
