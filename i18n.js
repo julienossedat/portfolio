@@ -21,8 +21,10 @@
       "home.cap": "Mes meilleurs projets sur mes deux années d'études, réalisés avec Pro Tools, Logic Pro et Ableton Live.",
       "home.yt": "Vidéo indisponible ? Ouvrir sur YouTube",
       "home.cv": "CV",
-      "home.cvAlt": "Aperçu du CV de Julien Ossedat, sound designer junior",
-      "home.cvText": "Formation, expérience en sound design et compétences : toutes les informations tiennent sur une page.",
+      "home.cvAlt": "Aperçu du CV de Julien Ossedat, sound designer et compositeur",
+      "home.cvImg": "cv-fr.png",
+      "home.cvPdf": "CV_Julien_OSSEDAT_FR.pdf",
+      "home.cvText": "Expérience, diplôme, logiciels, hobbies et jeux favoris : tout tient sur une page.",
       "home.cvDownload": "Télécharger le CV",
       "home.cvOpen": "Ouvrir le PDF",
 
@@ -35,14 +37,14 @@
       "proj.player": "Lecteur vidéo :",
 
       "about.title": "À propos",
-      "about.bio": "Sound designer passionné de musique et de jeux vidéo. Je cherche un stage afin d'approfondir les compétences dans le son acquises à travers l'école.",
+      "about.bio": "Sound designer et compositeur, passionné de musique et de jeux vidéo.",
       "about.path": "Parcours",
       "about.q1": "Stagiaire en sound design",
       "about.q1a": "Création de bruitages sonores pour interface utilisateur",
       "about.q1b": "Création de jingle et de sons pour la marque",
       "about.q1c": "Collaboration avec des comédiens de doublage pour une fiction sonore",
       "about.q2": "Bachelor Sound Designer",
-      "about.q2d": "ACFA Multimedia, 2024 à aujourd'hui",
+      "about.q2d": "ACFA Multimedia, 2024 à 2026",
       "about.skills": "Compétences",
       "about.s1": "Conception sonore",
       "about.s2": "Enregistrement",
@@ -62,7 +64,7 @@
       "about.i5": "Nouvelles technologies",
 
       "contact.title": "Contact",
-      "contact.intro": "Un projet, une collaboration, une offre de stage ? Écris-moi, je réponds par e-mail.",
+      "contact.intro": "Un projet, une collaboration, une opportunité ? Écris-moi, je réponds par e-mail.",
       "form.name": "Nom",
       "form.email": "E-mail",
       "form.message": "Message",
@@ -92,8 +94,10 @@
       "home.cap": "My best projects from my two years of study, made with Pro Tools, Logic Pro and Ableton Live.",
       "home.yt": "Video not loading? Open on YouTube",
       "home.cv": "CV",
-      "home.cvAlt": "Preview of Julien Ossedat's CV, junior sound designer",
-      "home.cvText": "Education, sound design experience and skills: everything fits on one page. The CV is written in French.",
+      "home.cvAlt": "Preview of Julien Ossedat's CV, sound designer and composer",
+      "home.cvImg": "cv-en.png",
+      "home.cvPdf": "CV_Julien_OSSEDAT_EN.pdf",
+      "home.cvText": "Experience, education, software, hobbies and favorite games: everything fits on one page.",
       "home.cvDownload": "Download CV",
       "home.cvOpen": "Open the PDF",
 
@@ -106,14 +110,14 @@
       "proj.player": "Video player:",
 
       "about.title": "About",
-      "about.bio": "Sound designer passionate about music and video games. I'm looking for an internship to deepen the audio skills I've gained at school.",
+      "about.bio": "Sound designer and composer, passionate about music and video games.",
       "about.path": "Background",
       "about.q1": "Sound design intern",
       "about.q1a": "Creating sound effects for a user interface",
       "about.q1b": "Creating a jingle and sounds for the brand",
       "about.q1c": "Working with voice actors on an audio fiction",
       "about.q2": "Bachelor Sound Designer",
-      "about.q2d": "ACFA Multimedia, 2024 to present",
+      "about.q2d": "ACFA Multimedia, 2024 to 2026",
       "about.skills": "Skills",
       "about.s1": "Sound design",
       "about.s2": "Recording",
@@ -133,7 +137,7 @@
       "about.i5": "New technologies",
 
       "contact.title": "Contact",
-      "contact.intro": "A project, a collaboration, an internship offer? Write to me, I reply by email.",
+      "contact.intro": "A project, a collaboration, an opportunity? Write to me, I reply by email.",
       "form.name": "Name",
       "form.email": "Email",
       "form.message": "Message",
@@ -173,6 +177,8 @@
     attr("[data-i18n-alt]", "data-i18n-alt", "alt");
     attr("[data-i18n-title]", "data-i18n-title", "title");
     attr("[data-i18n-aria]", "data-i18n-aria", "aria-label");
+    attr("[data-i18n-src]", "data-i18n-src", "src");
+    attr("[data-i18n-href]", "data-i18n-href", "href");
     document.querySelectorAll("a[href]").forEach(function (a) {
       var h = a.getAttribute("href");
       var m = h.match(/^([^:?#]*\.html)(\?[^#]*)?(#.*)?$/);
