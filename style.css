@@ -122,3 +122,10 @@ label span{display:block}
 
 .bio + .bio{margin-top:14px}
 #cats > section{scroll-margin-top:84px}
+
+.certcard{display:flex;align-items:center;gap:18px}
+.certcard img{display:block;width:96px;height:auto;flex:0 0 96px}
+.certcard b{display:block;font-size:1.05rem;line-height:1.3}
+.certcard small{display:block;color:var(--mut);margin:4px 0 8px}
+.certlink{font-size:.9rem}
+@media (max-width:480px){.certcard{flex-direction:column;align-items:flex-start}}
